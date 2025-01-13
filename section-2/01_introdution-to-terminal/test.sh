@@ -20,4 +20,4 @@
 # 11. rm : it is use to delete file . example: rm app.js
 # 12. rmdir : it is use to delete empty folder/dircetory. example: rmdir src(it must directory)
 # 13. rm -r : it is use to delete folder which stands for remove recursiveley all content. example: rm -r src
-
+# ----------------------END----------------------------------------------
