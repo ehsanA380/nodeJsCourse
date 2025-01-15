@@ -1,0 +1,1 @@
+echo hellow from cmd.sh fild
