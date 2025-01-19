@@ -1,6 +1,8 @@
 {
     "type": "module",
     "dependencies": {
-        "axios": "^1.7.9"
+        "axios": "^1.7.9",
+        "ehsanansari": "^1.0.0",
+        "procodrr": "^1.0.1"
     }
 }

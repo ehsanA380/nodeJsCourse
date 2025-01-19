@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "ehsanansari": "^1.0.0",
+    "procodrr": "^1.0.1"
+  }
+}
