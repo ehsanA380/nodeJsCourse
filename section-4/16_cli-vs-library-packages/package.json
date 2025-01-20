@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "abc": "vite"
+  },
+  "dependencies": {
+    "ehsanansari": "^1.0.1"
+  }
+}
