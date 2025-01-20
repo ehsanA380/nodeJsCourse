@@ -1,5 +1,5 @@
 {
-  "name": "timer",
+  "name": "ehsanExe",
   "bin": "app.js",
   "scripts": {
     "build": "pkg -t node16-win-x64 ."
