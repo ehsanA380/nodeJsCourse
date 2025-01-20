@@ -3,6 +3,12 @@ const { exec } = require('child_process');
 
 // let time = 1;
 const test = process.argv[2];
+if(test==undefined){
+  console.log('please provide filename as args.');
+  console.log('e.g => ehsanExe example.js');
+}else{
+
+
 console.log(`hello, I am Ehsan Ansari , I am executing your ${test} file`);
 console.log(`--------------Execution is starting from here--------------`);
 
@@ -36,5 +42,8 @@ childProcess.stdout.on('data', (data) => {
 });
 
 childProcess.stderr.on('data', (data) => {
-  console.error(`Error from test.js: ${data}`);
+  console.error(`Error from ${test}: ${data}`);
 });
+childProcess.on('close', (code) => { console.log(`Child process exited with code ${code}`); });
+
+}
