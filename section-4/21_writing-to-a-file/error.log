@@ -1,0 +1,20 @@
+2:06:53 am
+ENOENT: no such file or directory, open 'C:d\Users\Ehsan Ansari\OneDrive\Desktop\file-1.txt'
+Error: ENOENT: no such file or directory, open 'C:d\Users\Ehsan Ansari\OneDrive\Desktop\file-1.txt'
+    at async open (node:internal/fs/promises:638:25)
+    at async readFile (node:internal/fs/promises:1242:14)
+    at async file:///D:/nodejs-course/section-4/21_writing-to-a-file/app.js:42:26
+
+2:10:17 am
+ENOENT: no such file or directory, open 'D:\nodejs-course\section-4\21_writing-to-a-file\C\Users\Ehsan Ansari\OneDrive\Desktop\file-1dd.txt'
+Error: ENOENT: no such file or directory, open 'D:\nodejs-course\section-4\21_writing-to-a-file\C\Users\Ehsan Ansari\OneDrive\Desktop\file-1dd.txt'
+    at async open (node:internal/fs/promises:638:25)
+    at async readFile (node:internal/fs/promises:1242:14)
+    at async file:///D:/nodejs-course/section-4/21_writing-to-a-file/app.js:42:26
+
+2:11:49 am
+ENOENT: no such file or directory, open 'D:\nodejs-course\section-4\21_writing-to-a-file\C\Users\Ehsan Ansari\OneDrive\Desktop\file-1dd.txt'
+Error: ENOENT: no such file or directory, open 'D:\nodejs-course\section-4\21_writing-to-a-file\C\Users\Ehsan Ansari\OneDrive\Desktop\file-1dd.txt'
+    at async open (node:internal/fs/promises:638:25)
+    at async readFile (node:internal/fs/promises:1242:14)
+    at async file:///D:/nodejs-course/section-4/21_writing-to-a-file/app.js:42:26
