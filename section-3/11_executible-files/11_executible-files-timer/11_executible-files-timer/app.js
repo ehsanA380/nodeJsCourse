@@ -1,4 +1,7 @@
-const { exec } = require('child_process');
+// import {exec}  from 'child_process';
+const {exec} = require('child_process')
+
+
 
 
 // let time = 1;

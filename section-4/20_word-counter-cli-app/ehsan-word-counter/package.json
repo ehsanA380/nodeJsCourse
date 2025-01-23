@@ -1,0 +1,19 @@
+{
+    "type": "module",
+    "name": "ehsan-word-counter",
+    "version": "1.0.2",
+    "description": "\"minor updation has been done , in this pkg\"",
+    "main": "app.js",
+    "bin": {
+        "ehsan-word-counter": "./app.js"
+      },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "word",
+        "counter"
+    ],
+    "author": "Ehsan Ansari",
+    "license": "ISC"
+}
