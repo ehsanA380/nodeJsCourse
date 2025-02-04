@@ -1,0 +1,2 @@
+stdout: hi from script.js
+stderr: hi from script.js
