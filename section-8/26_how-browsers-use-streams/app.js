@@ -7,11 +7,11 @@ const server = http.createServer(async(req,res)=>{
     // res.setHeader('Content-Type','text/plain')
     // res.setHeader('Content-Type','image/webp')
     res.setHeader('Content-Type','video/mp4')
-    res.setHeader('Content-Disposition','attachment; filename=song.mp4')
+    // res.setHeader('Content-Disposition','attachment; filename=song.mp4')
     const fileHandle =await fs.open("C:\\Users\\Ehsan Ansari\\Videos\\KAKA  Official Video  Ginni Kapoor.mp4",);
-    const {size} = await fileHandle.stat();
-    res.setHeader('Content-Length',size)
-    const readStream=  fileHandle.createReadStream({highWaterMark:5*1024*1024})
+    // const {size} = await fileHandle.stat();
+    // res.setHeader('Content-Length',size)
+    const readStream=  fileHandle.createReadStream({highWaterMark:50*1024*1024})
     readStream.on('data',(chunk)=>{
         res.write(chunk);
         readStream.pause();
