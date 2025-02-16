@@ -3,7 +3,7 @@ import fs from 'fs'
 console.time()
 const buff = Buffer.allocUnsafe(16 * 1024);
 // Time 1000ms
-// Time 13ms with custom internal buffer
+// Time 13ms with custom  internal buffer
 const fd = fs.openSync('numbers.txt','w')
 let TotalByteWrittenInBuffer = 0;
 let remainingStr = "";
