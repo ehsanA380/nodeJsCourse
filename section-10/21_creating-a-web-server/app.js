@@ -8,7 +8,7 @@ const server = http.createServer((request, response) =>{
   if(request.url=='/'){
     const readStream = fs.createReadStream('./public/index.html');
     readStream.pipe(response);
-   
+  
   }else{
     const readStream = fs.createReadStream(`./public${request.url}`);
     readStream.pipe(response)
