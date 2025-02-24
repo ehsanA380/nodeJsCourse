@@ -1,11 +1,12 @@
 import { createWriteStream } from "fs";
-import { open, readdir, readFile } from "fs/promises";
+import { open, readdir, readFile, rm,rename } from "fs/promises";
 import http from "http";
 import mime from "mime-types";
 
 const server = http.createServer(async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Methods", "*");
   console.log(req.method);
   if (req.method === "GET") {
     if (req.url === "/favicon.ico") return res.end("No favicon.");
@@ -53,8 +54,40 @@ const server = http.createServer(async (req, res) => {
     });
     req.on("end", () => {
       console.log(count);
+      writeStream.end();
       res.end("File uploaded on the server");
     });
+  }else if(req.method==="DELETE"){
+    req.on('data',async(chunk)=>{
+      // console.log(chunk.toString())
+      try{
+        const filename = chunk.toString();
+        await rm(`storage/${filename}`)
+        res.end('file deleted successfully')
+      }catch(err){
+        res.end(err.message)
+      }
+      
+    })
+    // req.on('end',()=>{
+    //   res.end("file deleted successfully")
+    // })
+  }else if(req.method==="PUT"){
+    req.on('data',async(chunk)=>{
+      const filename = chunk.toString();
+      const newFilename = req.url;
+      console.log(newFilename)
+      try{
+        await rename(`storage/${filename}`, `storage/${newFilename}`)
+        res.end('file renamed successfully')
+      }catch(err){
+        res.end(err.message)
+      }
+      // console.log(filename)
+    })
+    // req.on("end",()=>{
+    //   res.end('file renamed successfully')
+    // })
   }
 });
 
