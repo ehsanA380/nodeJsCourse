@@ -4,9 +4,10 @@ import "./App.css";
 function App() {
   const [directoryItems, setDirectoryItems] = useState([]);
   const [progress, setProgress] = useState(0);
+  const URL = "http://[2405:201:6042:8016:659e:bed3:5646:ab9a]/";
 
   async function getDirectoryItems() {
-    const response = await fetch("http://192.168.29.50/");
+    const response = await fetch(URL);
     const data = await response.json();
     setDirectoryItems(data);
     // console.log(data)
@@ -18,7 +19,7 @@ function App() {
   async function handleChange(e) {
     const file = e.target.files[0];
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://192.168.29.50/", true);
+    xhr.open("POST", URL, true);
     xhr.setRequestHeader("filename", file.name);
     xhr.addEventListener("load", () => {
       console.log(xhr.response);
@@ -32,7 +33,7 @@ function App() {
     xhr.send(file);
   }
   async function handleDelete(item){
-    const response = await fetch('http://192.168.29.50',{
+    const response = await fetch(URL,{
       method:"DELETE",
       body:item
     })
@@ -44,7 +45,7 @@ function App() {
   async function handleRename(filename,newFilename){
     console.log(newFilename,'hiiii')
     // document.body.innerHTML = 'Renaming...';
-    const response = await fetch(`http://192.168.29.50/${newFilename}`,{
+    const response = await fetch(`${URL}${newFilename}`,{
       method:"PUT",
       body:filename,
     })
@@ -83,8 +84,12 @@ function App() {
     // const newFilename = input.value;
 
     // Optionally, add the input element to the document
-    div.appendChild(input);
+    // console.log(div.children.length)
+    if(div.children.length==5){
+      div.appendChild(input);
     div.appendChild(submit);
+    }
+    
 
   }
   return (
@@ -95,8 +100,8 @@ function App() {
       <p>Progress: {progress}%</p>
       {directoryItems.map((item, i) => (
         <div key={i} id={i}>
-          {item} <a href={`http://192.168.29.50/${item}?action=open`}>Open</a>{" "}
-          <a href={`http://192.168.29.50/${item}?action=download`}>Download</a>
+          {item} <a href={`${URL}${item}?action=open`}>Open</a>{" "}
+          <a href={`${URL}${item}?action=download`}>Download</a>
           <button onClick={()=>{inputField(item,i)}}>rename</button> 
           {/* <button onClick={()=>{inputField(item,i)}}>input</button>  */}
           <button id="renameBtn" onClick={()=>{handleDelete(item)}} >delete</button>
