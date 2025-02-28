@@ -4,19 +4,20 @@ import "./App.css";
 function App() {
   const [directoryItems, setDirectoryItems] = useState([]);
   const [progress, setProgress] = useState(0);
+  // const [newFilename, setNewFilename] = useState('');
   const URL = "http://192.168.29.50:3000/";
 
   async function getDirectoryItems() {
     const response = await fetch(URL);
     const data = await response.json();
     setDirectoryItems(data);
-    console.log(data)
+    // console.log(data)
   }
   useEffect(() => {
     getDirectoryItems();
   }, []);
 
-  async function handleChange(e) {
+  async function handleUpload(e) {
     const file = e.target.files[0];
     const xhr = new XMLHttpRequest();
     xhr.open("POST", URL, true);
@@ -43,18 +44,16 @@ function App() {
 
   }
   async function handleRename(filename,newFilename){
-    console.log(newFilename,'hiiii')
+    console.log('newFilename->',newFilename)
     // document.body.innerHTML = 'Renaming...';
-    const response = await fetch(`${URL}${newFilename}`,{
+    const response = await fetch(`${URL}`,{
       method:"PUT",
-      body:filename,
+      body:JSON.stringify({filename,newFilename}),
     })
     const data = await response.text();
     console.log(data)
     getDirectoryItems();
   }
- 
-
 
   function inputField(filename,i){
     // Create an input element
@@ -68,14 +67,11 @@ function App() {
     input.value = filename;
     input.onchange=()=>{
       newFilename = input.value
-      // console.log(newFilename)
     }
     submit.type='submit'
     submit.innerText='update'
     submit.onclick=()=>{
       handleRename(filename,newFilename)
-      // newFilename = input.value
-      console.log(newFilename)
       getDirectoryItems();
       input.remove()
       submit.remove()
@@ -87,7 +83,7 @@ function App() {
     // console.log(div.children.length)
     if(div.children.length==5){
       div.appendChild(input);
-    div.appendChild(submit);
+      div.appendChild(submit);
     }
     
 
@@ -96,7 +92,7 @@ function App() {
     <>   
 
       <h1>My Files</h1>
-      <input type="file" onChange={handleChange} />
+      <input type="file" onChange={handleUpload} />
       <p>Progress: {progress}%</p>
       {directoryItems.map((item, i) => (
         <div key={i} id={i}>
