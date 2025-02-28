@@ -21,14 +21,7 @@ app.use(async(req, res, next) => {
         res.set('Content-Disposition', `attachment;`)
         // res.setHeader('Content-Disposition',`attachment;`)
     }
-    const filename= req.url.split('?').replace();
-    try{
-        // const stats = await fs.stat(`./storage/${req.url}`)
-        console.log(filename)
-    }catch(err){
-        console.log(err.message)
-    }
-    // if(storage/${req.url})
+    
     express.static(`storage`)(req, res, next)
 });
 
