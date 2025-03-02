@@ -1,6 +1,6 @@
 const response = await fetch('http://localhost:3000/api',{
     // method:'POST',
-    method:'GET',
+    method:'PUT',
     headers:{
         // 'Content-Type':'application/json',
     },
