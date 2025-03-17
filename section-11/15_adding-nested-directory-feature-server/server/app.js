@@ -42,8 +42,6 @@ app.post('/', (req, res) => {
     req.on('end', () => {
         res.end('file uploaded successfully.')
     })
-
-
 })
 //rename file
 app.put('/', (req, res) => {
