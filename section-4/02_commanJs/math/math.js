@@ -3,6 +3,10 @@ function sum(...nums){
  }
 const product = (...nums)=>{ return nums.reduce((curr,acc)=>curr*acc)}
 
+// const test =()=>{
+//     console.log(this)
+//     return this
+// }
 // console.log('hi');
 // console.log(module);
 

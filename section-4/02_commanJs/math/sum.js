@@ -3,4 +3,6 @@ function sum(...nums){
 }
 
 // console.log('sum module')
+// module.exports = 'ehsan';
 module.exports = sum;
+console.log('hi')
