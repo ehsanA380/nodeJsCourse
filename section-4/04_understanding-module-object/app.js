@@ -12,7 +12,30 @@
 
 // console.log(module)
 
-name ='ehsan'
+// name ='ehsan'
 
 
 console.log('hi')
+
+
+const data = {
+    name:'ehsan',
+    age:23,
+    address:{
+        city:"ghazipur",
+        state:"up",
+        pincode:232328
+    }
+}
+
+const address=data.address;
+
+
+console.log(data)
+console.log(address)
+
+address.city="lucknow";
+address.vill='rtp'
+
+console.log(data)
+
