@@ -1,12 +1,12 @@
 {
     "type": "module",
     "name": "ehsan-word-counter",
-    "version": "1.0.2",
-    "description": "\"minor updation has been done , in this pkg\"",
+    "version": "1.1.2",
+    "description": "adding chalk to show the result in a more interactive way .",
     "main": "app.js",
     "bin": {
         "ehsan-word-counter": "./app.js"
-      },
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -15,5 +15,8 @@
         "counter"
     ],
     "author": "Ehsan Ansari",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^5.6.2"
+    }
 }

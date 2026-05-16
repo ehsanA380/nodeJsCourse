@@ -1,31 +1,45 @@
 #!/usr/bin/env node
 
-import fs from 'node:fs/promises';
-if (process.argv.length == 2) {
-    console.log('please provide filename !');
-} else {
-    const input = process.argv[2];
-    const searchTextInput = process.argv[3];
-    const content = await fs.readFile(`./${input}`, 'utf-8');
-    const wordsArray = content.split(/[\W]/).filter((a) => a);
-    const wordsCount = {};
 
-    wordsArray.forEach(word => {
-        if (word in wordsCount) {
-            wordsCount[word] += 1;
-        } else {
-            wordsCount[word] = 1;
-        }
-    });
-    if (process.argv.length == 4) {
-        if (searchTextInput in wordsCount) {
-            console.log({ [searchTextInput]: wordsCount[searchTextInput] })
-        } else {
-            console.log({ [searchTextInput]: 0 })
-        }
-    } else {
+import fs from 'fs/promises';
+import chalk from 'chalk';
+import { json } from 'stream/consumers';
 
-        console.log(wordsCount);
-    }
+
+const filePath = process.argv[2];
+
+if(process.argv.length==2){
+   console.log(chalk.bgRed.white('please provide filePath: '));
+   process.exit(1)
 }
+
+const content = await  fs.readFile(filePath,'utf8');
+
+const countObj = {}
+// console.log('e' in countObj)
+const data = content.split(/[\W]/)
+const wordArray = data.filter((word)=>word!=='').map(word=>word.toLocaleLowerCase());
+
+
+
+wordArray.forEach(element => {
+   if(element in countObj){
+    countObj[element]+=1;
+   }else{
+    countObj[element]=1;
+   }
+});
+
+if(process.argv.length==4){
+   const searchData = process.argv[3]
+   if(searchData in countObj){
+      console.log(chalk.bgGreen.black(`{${[searchData]}:${countObj[searchData]}}`))
+   }else{
+      console.log({[searchData]:0}, chalk.yellow(" try with another word!"))
+   }
+}else{
+   console.log(countObj)
+}
+
+
 
