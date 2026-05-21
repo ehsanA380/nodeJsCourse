@@ -39,7 +39,7 @@ console.log(a)
 
 const b = a.transfer();
 console.log("b",b);
-
 console.log(a)
+console.log(a.detached)
 
 

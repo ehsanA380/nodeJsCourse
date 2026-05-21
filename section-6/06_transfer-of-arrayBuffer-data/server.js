@@ -33,3 +33,5 @@ function startServer(responseData){
         console.log("Listening on http://localhost:3000")
     })
 }
+
+// console.log(uint8Array.buffer)
