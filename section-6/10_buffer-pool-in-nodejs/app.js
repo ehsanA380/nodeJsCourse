@@ -22,11 +22,13 @@ import {Buffer, constants} from 'buffer';
 // console.log(a.buffer.byteLength)
 // console.log(b.buffer.byteLength)
 // console.log(a.buffer,b.buffer,c.buffer)
-// const buffer = Buffer.alloc(90071992)
+const buffer = Buffer.alloc(90071992)
 // console.log(constants.MAX_LENGTH)
 
 const a = Buffer.allocUnsafe(4)
 const b = Buffer.allocUnsafeSlow(4)
 
-console.log(a.buffer.byteLength)
-console.log(b.buffer.byteLength)
+// console.log(a.buffer.byteLength)
+// console.log(b.buffer.byteLength)
+
+console.log(constants.MAX_LENGTH)
